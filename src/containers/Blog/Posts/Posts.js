@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios_instance from '../../../axios';
 import Post from '../../../components/Post/Post';
-import {Link } from 'react-router-dom';
+//import {Link } from 'react-router-dom';
 import './Posts.css';
 
 class Posts extends Component {
@@ -30,7 +30,9 @@ class Posts extends Component {
     }
 
     postSelectedHandler = (id) => {
-        this.setState({selectedPostId: id});
+       // this.setState({selectedPostId: id});
+       console.log("programatical navigation");
+       this.props.history.push({pathname: '/' + id});
     }
 
     render () {
@@ -38,12 +40,13 @@ class Posts extends Component {
         if (!this.state.error) {
             postsData = this.state.posts.map(element=>{
                 return (
-                    <Link to={'/' + element.id}  key={element.id}>
-                        <Post 
+                   // <Link to={'/' + element.id}  key={element.id}>
+                        <Post
+                            key={element.id}
                             title={element.title} 
                             author={element.auther} 
                             clicked={() => this.postSelectedHandler(element.id)}/>
-                    </Link>
+                 //   </Link>
                 );
             });
         }
