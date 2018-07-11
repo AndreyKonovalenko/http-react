@@ -26,7 +26,9 @@ class NewPost extends Component {
         axios.post('/posts', data)
             .then(response => {
                 console.log(response);
-                this.setState({submitted: true});
+                this.props.history.push('/posts');
+                // or we can use replace method instead of push method on the history props, but in this case we can not use back button in browser
+                // this.setState({submitted: true});
             });
 
     }
