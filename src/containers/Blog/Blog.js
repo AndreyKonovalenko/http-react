@@ -11,7 +11,10 @@ import NewPost from './NewPost/NewPost';
 import './Blog.css';
 
 class Blog extends Component {
-
+    state = {
+        auth: false
+    }
+    
     render () {
         return (
             <div className="Blog">
@@ -34,10 +37,10 @@ class Blog extends Component {
                         </ul>
                     </nav>
                     <Switch>
-                        <Route path="/new-post" component={NewPost} />
+                        {this.state.auth ? <Route path="/new-post" component={NewPost} /> : null}
                         <Route path="/posts" component={Posts} />
                         <Redirect from="/" to="/posts" />
-                        {/* use "from" in Redirect component only inside Switch component, in other situation only use "to"*/}
+                        {/* use "from" in Redirect component only inside Switch component, in other situation only use "to" */}
                     </Switch>
                 </header>
             </div>
