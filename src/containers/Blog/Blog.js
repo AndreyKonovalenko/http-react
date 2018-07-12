@@ -11,7 +11,7 @@ import './Blog.css';
 
 
 const AsycnNewPost = asyncComponent(() => {
-    //dynamic sytax, it means that import will execute only when anonymous () function will executed
+    //dynamic sytax, it means that import will execute only when anonymous () function will be executed
     // and the function will be executed once we rendered AscynNewPost component to the screen
     return import('./NewPost/NewPost');
 }); 
